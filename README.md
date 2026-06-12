@@ -1,6 +1,4 @@
-# Nura Health 🩺 — Child Malnutrition Screening MVP
-
-**Full-Stack / ML Track — Initial Software Product Demonstration**
+# Nura Health Child Malnutrition Screening
 
 Nura Health helps community health workers (CHWs) in Rwanda screen children under 5
 for malnutrition. Instead of a single MUAC-tape reading (which research shows misses
@@ -19,7 +17,7 @@ and a recommended action.
 
 ## Repository Layout
 
-This repo contains a **separated backend and frontend**, as required:
+This repo contains a **separated backend and frontend** :
 
 ```
 Nurahealth/
@@ -132,21 +130,6 @@ New **Screening** (5 inputs) → colour-coded **Result** → Patients / Profile 
 
 ---
 
-## What to Demo (matches the rubric)
-
-1. **Register / Login** — create an account or use the demo credentials; invalid
-   passwords and duplicate emails are rejected with clear messages.
-2. **Navigation** — Splash → Onboarding → Login → Home dashboard → New Screening →
-   colour-coded Result → Patients / Profile. Clear, logical flow throughout.
-3. **Detection** — on the Screening page, enter the 5 measurements and **Run
-   detection**. The result comes from the live ML model via the backend API.
-4. **Backend / Swagger** — open `http://127.0.0.1:8000/docs` and run
-   `POST /predict/child-malnutrition` directly to show the API.
-5. **ML notebook** — `nurahealth_backend/notebooks/nura_health_model.ipynb` shows the
-   data engineering, model architectures, SMOTE balancing, metrics, and SHAP.
-
----
-
 ## API Endpoints
 
 **ML backend — FastAPI** (`nurahealth_backend/api/main.py`):
@@ -189,15 +172,6 @@ only `DATABASE_URL` changes.
 
 - **Rwanda DHS 2019–20** (Children's Recode, `RWKR81DT`) — 3,436 children under 5
   after cleaning — provides the anthropometric measurements.
-- **WHO 2006 child growth standards** — the weight-for-height z-score thresholds used
-  to derive the ground-truth labels (`WHZ < -3` severely wasted, `-3 ≤ WHZ < -2`
-  wasted, `WHZ ≥ -2` normal).
-
-So the project uses **both** the Rwanda DHS data and the WHO standards, exactly as
-set out in the research proposal. See
-[nurahealth_backend/data/prepare_data.py](nurahealth_backend/data/prepare_data.py)
-for the full data-engineering pipeline.
-
 ---
 
 ## Deployment Plan
@@ -213,12 +187,5 @@ for the full data-engineering pipeline.
 
 ## Video Demo
 
-> Insert your Loom / YouTube link here.
-
-Focus the recording on the **functionality** (login, navigation, detection), not on
-background research — 5 to 10 minutes.
-
+YouTube link:
 ---
-
-For full ML / backend details (model results, SHAP, project internals), see
-[nurahealth_backend/README.md](nurahealth_backend/README.md).

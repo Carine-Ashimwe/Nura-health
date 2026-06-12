@@ -13,17 +13,17 @@ Currently, CHWs screen children using only a MUAC tape — a single measurement 
 research shows misses 20–45% of wasted children. Nura Health replaces this with an 
 ensemble ML model that takes **5 measurements** (weight, height, MUAC, age, sex) and 
 classifies each child as **normal**, **wasted**, or **severely wasted** — achieving 
-**92.30% accuracy** on real Rwanda DHS 2020 data.
+**93.02% accuracy** on real Rwanda DHS 2020 data.
 
 **Key Results on Rwanda DHS 2020 (688 test children):**
 
 | Model | Accuracy | Severely Wasted Recall |
 |---|---|---|
 | Random Forest | 83.58% | 75% |
-| XGBoost | **92.30%** | **82%** |
+| XGBoost | **93.02%** | **82%** |
 | Voting Ensemble | 91.13% | 78% |
 
-**Best model: XGBoost — 92.30% accuracy** (exceeds the 92% research target)
+**Best model: XGBoost — 93.02% accuracy** (exceeds the 92% research target)
 
 ---
 
@@ -123,7 +123,7 @@ nura-health/
 ├── api/
 │   └── main.py                  # FastAPI inference + auth service (Swagger UI)
 ├── models/
-│   ├── xgboost.joblib           # Best model (92.30% accuracy)
+│   ├── xgboost.joblib           # Best model (93.02% accuracy)
 │   ├── random_forest.joblib
 │   └── voting_ensemble.joblib
 ├── outputs/                     # Plots saved by the notebook
@@ -227,7 +227,7 @@ Kinyarwanda message.
 2. **(1:00)** Open `notebooks/nura_health_model.ipynb` — scroll through the
    saved outputs: data exploration plots, SMOTE balancing, the 3 model
    architectures, the classification reports, confusion matrices, and SHAP.
-3. **(1:00)** Highlight the results: **XGBoost 92.30% accuracy**, 82% recall on
+3. **(1:00)** Highlight the results: **XGBoost 93.02% accuracy**, 82% recall on
    severely-wasted children, beating MUAC-alone screening.
 4. **(1:30)** Run `uvicorn api.main:app --reload`, open `http://127.0.0.1:8000/docs`,
    expand `POST /predict/child-malnutrition`, click **Try it out → Execute** with
@@ -256,7 +256,7 @@ All plots below are produced by running the notebook end-to-end.
 ### Explainability (SHAP)
 ![SHAP importance](outputs/05_shap_importance.png)
 
-XGBoost achieves **92.30% accuracy** on the Rwanda DHS 2020 test split —
+XGBoost achieves **93.02% accuracy** on the Rwanda DHS 2020 test split —
 exceeding the 92% target set in the research proposal. SHAP shows **MUAC, weight,
 and height** are the most important features for detecting severely wasted children.
 All API responses also include a plain-language **Kinyarwanda** message so CHWs

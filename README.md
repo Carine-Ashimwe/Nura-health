@@ -7,7 +7,7 @@ age, sex — and an ensemble ML model instantly classifies the child as **normal
 **wasted**, or **severely wasted**, with a confidence score, a Kinyarwanda message,
 and a recommended action.
 
-- **Best model:** XGBoost — **92.30% accuracy** on real Rwanda DHS 2020 data.
+- **Best model:** XGBoost — **93.02% accuracy** on real Rwanda DHS 2020 data.
 - **Data:** Rwanda DHS 2019–20 (Children's Recode), labelled with **WHO 2006**
   weight-for-height z-score thresholds.
 

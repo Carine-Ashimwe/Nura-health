@@ -29,7 +29,7 @@ classifies each child as **normal**, **wasted**, or **severely wasted** — achi
 
 ## GitHub Repository
 
-[https://github.com/YOUR_USERNAME/nura-health](https://github.com/YOUR_USERNAME/nura-health)
+[https://github.com/Carine-Ashimwe/Nura-health](https://github.com/Carine-Ashimwe/Nura-health)
 
 ---
 
@@ -63,7 +63,7 @@ classifies each child as **normal**, **wasted**, or **severely wasted** — achi
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/nura-health.git
+git clone https://github.com/Carine-Ashimwe/Nura-health.git
 cd nura-health
 
 # 2. Create a virtual environment

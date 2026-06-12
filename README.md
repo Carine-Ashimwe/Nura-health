@@ -11,7 +11,10 @@ and a recommended action.
 - **Data:** Rwanda DHS 2019–20 (Children's Recode), labelled with **WHO 2006**
   weight-for-height z-score thresholds.
 
-> **GitHub repo:** _<paste your GitHub repository URL here>_
+> **GitHub repo:** <https://github.com/Carine-Ashimwe/Nura-health.git>
+
+> **YouTube link:** 
+
 
 ---
 
@@ -183,9 +186,4 @@ only `DATABASE_URL` changes.
 | Models | Bundled `.joblib` files in the repo | Same, or model registry |
 | Database | Prisma + local **SQLite** (`dev.db`) | Prisma + **PostgreSQL** (Neon) |
 
----
-
-## Video Demo
-
-YouTube link:
 ---

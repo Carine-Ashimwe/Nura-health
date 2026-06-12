@@ -1,0 +1,38 @@
+# ===== OS / editor =====
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# ===== Python (backend) =====
+**/venv/
+.venv/
+**/__pycache__/
+*.pyc
+**/.ipynb_checkpoints/
+
+# ===== Node / Next.js (frontend) =====
+**/node_modules/
+nurahealth_frontend/.next/
+nurahealth_frontend/out/
+nurahealth_frontend/build/
+nurahealth_frontend/next-env.d.ts
+**/*.tsbuildinfo
+
+# ===== Prisma local DB =====
+nurahealth_frontend/prisma/dev.db
+nurahealth_frontend/prisma/dev.db-journal
+
+# ===== next-pwa generated service worker =====
+nurahealth_frontend/public/sw.js
+nurahealth_frontend/public/workbox-*.js
+nurahealth_frontend/public/sw.js.map
+nurahealth_frontend/public/fallback-*.js
+
+# ===== env (keep .env.example tracked) =====
+.env
+.env*.local
+**/.vercel
+
+# ===== local-only helper docs (not part of the submission) =====
+VIDEO_SCRIPT.md

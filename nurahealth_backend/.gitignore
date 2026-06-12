@@ -1,0 +1,13 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Environment
+.env
+
+# Keep models/, outputs/, and data/*.csv tracked (needed for the demo)

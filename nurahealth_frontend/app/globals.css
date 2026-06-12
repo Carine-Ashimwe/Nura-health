@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@layer components {
+  /* full-screen mobile canvas, centred on larger screens */
+  .screen {
+    @apply relative mx-auto flex min-h-[100dvh] w-full max-w-[480px] flex-col overflow-hidden;
+  }
+  .bg-mint {
+    @apply bg-gradient-to-b from-[#eef8f4] via-[#dff1ec] to-[#cfeae2] text-ink
+           dark:from-[#0e1b19] dark:via-[#10211d] dark:to-[#122723] dark:text-[#e9f1ef];
+  }
+  .bg-teal {
+    @apply bg-gradient-to-b from-[#5e9c90] via-[#3d7468] to-[#28564c]
+           dark:from-[#1a4039] dark:via-[#11302a] dark:to-[#0a1f1b];
+  }
+
+  .card {
+    @apply rounded-[22px] bg-white shadow-[0_12px_30px_rgba(23,70,62,0.08)]
+           dark:bg-[#16221f] dark:shadow-[0_12px_30px_rgba(0,0,0,0.45)];
+  }
+  .sheet {
+    @apply rounded-t-[34px] bg-cream shadow-[0_-18px_50px_rgba(20,60,52,0.18)]
+           dark:bg-[#101e1b];
+  }
+
+  .label {
+    @apply mb-2 ml-1 text-[12px] font-bold uppercase tracking-wide text-muted;
+  }
+  .field {
+    @apply h-14 w-full min-w-0 rounded-2xl border border-line bg-white px-[18px] text-[15px] font-semibold text-ink
+           outline-none placeholder:font-normal placeholder:text-muted
+           focus:border-teal-600 focus:ring-4 focus:ring-teal-600/15
+           dark:border-[#2b3a37] dark:bg-[#16221f] dark:text-[#e9f1ef] dark:placeholder:text-[#6f8983];
+  }
+
+  .btn {
+    @apply flex h-[58px] w-full items-center justify-center gap-2 rounded-[18px] text-[17px] font-semibold transition active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply bg-teal-700 text-white shadow-[0_14px_26px_rgba(47,111,100,0.32)];
+  }
+  .btn-ghost {
+    @apply bg-[#eef0ec] text-muted dark:bg-[#243431] dark:text-[#cfe0db];
+  }
+  .btn-red {
+    @apply bg-brand-red text-white shadow-[0_14px_26px_rgba(230,96,79,0.32)];
+  }
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-[6px] text-[12px] font-semibold;
+  }
+}
+
+/* In-app feedback (toast + confirm dialog) animations */
+@keyframes nuraToastIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes nuraFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes nuraPopIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nura-toast-in { animation: nuraToastIn 0.22s ease-out; }
+.nura-fade-in  { animation: nuraFadeIn 0.18s ease-out; }
+.nura-pop-in   { animation: nuraPopIn 0.24s cubic-bezier(0.22, 1, 0.36, 1); }

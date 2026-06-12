@@ -1,0 +1,51 @@
+// Prisma schema — users for Nura Health.
+// Dev uses SQLite; switch `provider` to "postgresql" for prod (Neon).
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String   @id @default(cuid())
+  fullName          String
+  email             String   @unique
+  province          String   @default("")
+  district          String   @default("")
+  sector            String   @default("")
+  cell              String   @default("")
+  village           String   @default("")
+  reportingFacility String   @default("")
+  passwordHash      String
+  createdAt         DateTime @default(now())
+}
+
+model Child {
+  id         String      @id @default(cuid())
+  name       String
+  sex        Int // 0 = male, 1 = female
+  ageMonths  Int
+  caregiver  String?
+  village    String?
+  userId     String // the CHW who registered the child
+  createdAt  DateTime    @default(now())
+  screenings Screening[]
+}
+
+model Screening {
+  id             String   @id @default(cuid())
+  childId        String
+  child          Child    @relation(fields: [childId], references: [id], onDelete: Cascade)
+  weightKg       Float
+  heightCm       Float
+  muacMm         Float
+  ageMonths      Int
+  sex            Int
+  classification String
+  confidence     Float
+  userId         String
+  createdAt      DateTime @default(now())
+}

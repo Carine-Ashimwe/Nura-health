@@ -1,0 +1,12 @@
+# Runtime-only deps for deploying the ML inference API.
+# (The full requirements.txt also includes training/notebook tools like
+#  jupyter, shap, matplotlib — not needed to serve predictions.)
+# Versions are pinned to match what the model was trained/pickled with,
+# so joblib can safely unpickle xgboost.joblib.
+fastapi==0.104.0
+uvicorn[standard]==0.24.0
+pydantic==2.4.0
+numpy==1.24.0
+scikit-learn==1.3.0
+xgboost==2.0.0
+joblib==1.3.0

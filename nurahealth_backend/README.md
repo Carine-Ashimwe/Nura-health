@@ -6,14 +6,19 @@
 
 ## Description
 
-Nura Health is an ensemble machine learning system that improves child malnutrition 
-detection for community health workers (CHWs) in Rwanda. 
+Child malnutrition remains a major public-health problem in Rwanda. Community health 
+workers (CHWs) often begin screening with MUAC because it is fast and inexpensive, but 
+MUAC alone is not sufficient: research shows that relying on arm circumference by itself 
+can miss a meaningful share of wasted children. Nura Health addresses that gap by combining 
+MUAC with other indicators that influence nutritional status — **weight, height, age, and sex** 
+— and using a machine-learning model to infer whether a child is **normal**, **wasted**, or 
+**severely wasted**.
 
-Currently, CHWs screen children using only a MUAC tape — a single measurement that 
-research shows misses 20–45% of wasted children. Nura Health replaces this with an 
-ensemble ML model that takes **5 measurements** (weight, height, MUAC, age, sex) and 
-classifies each child as **normal**, **wasted**, or **severely wasted** — achieving 
-**93.02% accuracy** on real Rwanda DHS 2020 data.
+Because the project has access to labelled survey data for these indicators, it can train and 
+evaluate models on real cases rather than on MUAC alone. The best model in this repository is 
+**XGBoost**, which achieves **93.02% accuracy** on the held-out Rwanda DHS test split. For 
+this safety-critical task, we also track **recall on the severely wasted class** (82%) so we can 
+measure how well the model avoids missing the children who need urgent referral.
 
 **Key Results on Rwanda DHS 2020 (688 test children):**
 
@@ -23,7 +28,13 @@ classifies each child as **normal**, **wasted**, or **severely wasted** — achi
 | XGBoost | **93.02%** | **82%** |
 | Voting Ensemble | 91.13% | 78% |
 
-**Best model: XGBoost — 93.02% accuracy** (exceeds the 92% research target)
+**Best model: XGBoost — 93.02% accuracy** with **82% recall** on severely wasted children.
+
+**Metric note:** the 93.02% figure is **accuracy**, not precision or recall. Accuracy is used to 
+summarize overall correctness across the full test set, while recall is reported separately for 
+the severely wasted class because false negatives are more serious in this setting. In other 
+words, a model that is accurate overall but misses severe cases would not be acceptable; that is 
+why the severely wasted recall is highlighted alongside accuracy.
 
 ---
 
@@ -227,8 +238,9 @@ Kinyarwanda message.
 2. **(1:00)** Open `notebooks/nura_health_model.ipynb` — scroll through the
    saved outputs: data exploration plots, SMOTE balancing, the 3 model
    architectures, the classification reports, confusion matrices, and SHAP.
-3. **(1:00)** Highlight the results: **XGBoost 93.02% accuracy**, 82% recall on
-   severely-wasted children, beating MUAC-alone screening.
+3. **(1:00)** Highlight the results: **XGBoost 93.02% accuracy**, **82% recall** on
+   severely-wasted children, and explain that the score is **accuracy** while recall is
+   tracked separately for safety because missing a severe case is the highest-risk error.
 4. **(1:30)** Run `uvicorn api.main:app --reload`, open `http://127.0.0.1:8000/docs`,
    expand `POST /predict/child-malnutrition`, click **Try it out → Execute** with
    the severe-case example → show the `severely_wasted` result + Kinyarwanda
@@ -256,8 +268,10 @@ All plots below are produced by running the notebook end-to-end.
 ### Explainability (SHAP)
 ![SHAP importance](outputs/05_shap_importance.png)
 
-XGBoost achieves **93.02% accuracy** on the Rwanda DHS 2020 test split —
-exceeding the 92% target set in the research proposal. SHAP shows **MUAC, weight,
+XGBoost achieves **93.02% accuracy** on the Rwanda DHS 2020 test split, with
+**82% recall** on the severely wasted class. The 93.02% figure is the model's
+overall **accuracy**; we report recall separately because the clinical priority is
+to avoid missing children who need urgent referral. SHAP shows **MUAC, weight,
 and height** are the most important features for detecting severely wasted children.
 All API responses also include a plain-language **Kinyarwanda** message so CHWs
 receive guidance in their primary language.

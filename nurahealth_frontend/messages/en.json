@@ -144,7 +144,11 @@
     "saved": "Record saved for this child.",
     "normal": "NORMAL",
     "wasted": "WASTED",
-    "severely_wasted": "SEVERELY WASTED"
+    "severely_wasted": "SEVERELY WASTED",
+    "followUp": "Follow up in {days} days to monitor the child's progress.",
+    "banner_normal": "This child's nutrition is on track. Keep up routine monitoring.",
+    "banner_wasted": "This child shows signs of wasting and needs nutritional support.",
+    "banner_severely_wasted": "This child is severely wasted and requires urgent attention."
   },
   "profile": {
     "title": "Profile",

@@ -144,7 +144,11 @@
     "saved": "Inyandiko y'uyu mwana yabitswe.",
     "normal": "BISANZWE",
     "wasted": "YAGABANUTSE",
-    "severely_wasted": "YAGABANUTSE CYANE"
+    "severely_wasted": "YAGABANUTSE CYANE",
+    "followUp": "Kurikirana mu minsi {days} kugira ngo urebe uko umwana ahagaze.",
+    "banner_normal": "Imirire y'umwana iri mu buryo bwiza. Komeza ukurikirane buri gihe.",
+    "banner_wasted": "Umwana agaragaza ibimenyetso by'imirire mibi kandi akeneye gufashwa.",
+    "banner_severely_wasted": "Uyu mwana afite imirire mibi cyane kandi akeneye ubufasha bwihutirwa."
   },
   "profile": {
     "title": "Umwirondoro",

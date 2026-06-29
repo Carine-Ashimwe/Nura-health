@@ -12,10 +12,17 @@ export interface ResultData {
 }
 
 export const RESULT_THEME = {
-  normal: { title: "#1f9d57", hero: "from-[#e9f8ef] to-[#d8f3e2]", circle: "bg-brand-green", icon: "✓", border: "border-brand-green", btn: "btn-primary" },
-  wasted: { title: "#c97f17", hero: "from-[#fdf3e3] to-[#fbe7c9]", circle: "bg-brand-amber", icon: "!", border: "border-brand-amber", btn: "btn-primary" },
-  severely_wasted: { title: "#c4392a", hero: "from-[#fdeeea] to-[#fce3dc]", circle: "bg-brand-red", icon: "!", border: "border-brand-red", btn: "btn-red" },
+  normal: { title: "#1f9d57", hero: "from-[#e9f8ef] to-[#d8f3e2]", circle: "bg-brand-green", softCircle: "bg-brand-green/15", icon: "✓", border: "border-brand-green", btn: "btn-primary" },
+  wasted: { title: "#c97f17", hero: "from-[#fdf3e3] to-[#fbe7c9]", circle: "bg-brand-amber", softCircle: "bg-brand-amber/15", icon: "!", border: "border-brand-amber", btn: "btn-primary" },
+  severely_wasted: { title: "#c4392a", hero: "from-[#fdeeea] to-[#fce3dc]", circle: "bg-brand-red", softCircle: "bg-brand-red/15", icon: "!", border: "border-brand-red", btn: "btn-red" },
 } as const;
+
+// Days until the recommended follow-up visit, per classification.
+export const FOLLOWUP_DAYS: Record<Classification, number> = {
+  normal: 28,
+  wasted: 14,
+  severely_wasted: 7,
+};
 
 // Mirrors the backend's per-class messages so a stored screening can be
 // re-rendered later (the texts are deterministic per classification).

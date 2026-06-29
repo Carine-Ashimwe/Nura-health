@@ -1,11 +1,12 @@
 // Prisma schema — users for Nura Health.
-// Dev uses SQLite; switch `provider` to "postgresql" for prod (Neon).
+// Postgres (Neon) is used for both production and local dev.
+// Set DATABASE_URL in .env to your Neon connection string.
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 

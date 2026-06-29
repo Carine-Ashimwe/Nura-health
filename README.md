@@ -1,15 +1,22 @@
 # Nura Health Child Malnutrition Screening
 
 Nura Health helps community health workers (CHWs) in Rwanda screen children under 5
-for malnutrition. Instead of a single MUAC-tape reading (which research shows misses
-20–45% of wasted children), a CHW enters **5 measurements** — weight, height, MUAC,
-age, sex — and an ensemble ML model instantly classifies the child as **normal**,
-**wasted**, or **severely wasted**, with a confidence score, a Kinyarwanda message,
-and a recommended action.
+for malnutrition. MUAC is useful because it is quick and inexpensive, but arm
+circumference alone is not enough to determine nutritional status. Research shows that
+screening based only on MUAC can miss a meaningful share of wasted children. Nura
+Health combines MUAC with other indicators — **weight, height, age, and sex** — and
+uses machine learning to classify the child as **normal**, **wasted**, or **severely
+wasted**, with a confidence score, a Kinyarwanda message, and a recommended action.
 
 - **Best model:** XGBoost — **93.02% accuracy** on real Rwanda DHS 2020 data.
+- **Safety metric:** **82% recall** on the severely wasted class.
 - **Data:** Rwanda DHS 2019–20 (Children's Recode), labelled with **WHO 2006**
   weight-for-height z-score thresholds.
+
+**Metric note:** the 93.02% figure is the model's overall **accuracy**, not precision
+or recall. Accuracy summarizes how often the model is correct across the whole test
+set. We also report **recall** for the severely wasted class because missing a child
+who needs urgent referral is the most serious error in this setting.
 
 > **GitHub repo:** <https://github.com/Carine-Ashimwe/Nura-health.git>
 

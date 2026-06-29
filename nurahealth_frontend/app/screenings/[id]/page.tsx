@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { getSession } from "@/lib/session";
 import prisma from "@/lib/prisma";
 import ResultView from "@/components/ResultView";
+import { UserIcon } from "@/components/icons";
 import { buildResult } from "@/lib/results";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -32,7 +33,11 @@ export default async function ScreeningDetailPage({ params }: { params: { id: st
         <Link href="/screenings" className="flex h-[42px] w-[42px] items-center justify-center rounded-[13px] bg-white text-[20px] shadow-[0_8px_18px_rgba(23,70,62,0.08)] dark:bg-[#1d2b28]">←</Link>
         <div>
           <div className="text-[22px] font-bold">{t("title")}</div>
-          {screening.child?.name && <div className="text-[13px] text-muted">{screening.child.name}</div>}
+          {screening.child?.name && (
+            <div className="flex items-center gap-1.5 text-[13px] text-muted">
+              <UserIcon className="h-3.5 w-3.5" /> {screening.child.name}
+            </div>
+          )}
         </div>
       </div>
 

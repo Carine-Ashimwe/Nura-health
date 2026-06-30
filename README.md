@@ -10,7 +10,7 @@ wasted**, with a confidence score, a Kinyarwanda message, and a recommended acti
 
 ---
 
-## 🚀 Live Deployment
+## Live Deployment
 
 The full stack is deployed and running in production (free tier, $0/month):
 
@@ -44,7 +44,7 @@ the model URL server-side.
 
 ---
 
-## 📊 Model & Results
+## Model & Results
 
 - **Best model:** XGBoost — **93.02% accuracy** on real Rwanda DHS 2020 data.
 - **Safety metric:** **82% recall** on the severely wasted class.
@@ -69,7 +69,7 @@ missing a child who needs urgent referral is the most serious error in this sett
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |---|---|
@@ -85,7 +85,7 @@ missing a child who needs urgent referral is the most serious error in this sett
 
 ---
 
-## 📁 Repository Layout
+## Repository Layout
 
 ```
 Nurahealth/
@@ -116,7 +116,7 @@ Nurahealth/
 
 ---
 
-## 💻 Run Locally
+## Run Locally
 
 > Prerequisites: **Python 3.9+** and **Node.js 18+** (with npm).
 
@@ -173,7 +173,7 @@ Environment Variables.
 
 ---
 
-## 🚢 How It Was Deployed
+## How It Was Deployed
 
 | Component | Platform | Notes |
 |---|---|---|
@@ -185,7 +185,7 @@ Everything redeploys automatically on `git push` to `main`.
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 **ML backend — FastAPI** (`nurahealth_backend/api/main.py`):
 
@@ -207,7 +207,7 @@ Everything redeploys automatically on `git push` to `main`.
 
 ---
 
-## 🗄️ Database Schema (Prisma)
+## Database Schema (Prisma)
 
 Defined in `nurahealth_frontend/prisma/schema.prisma`:
 
@@ -223,7 +223,7 @@ only `DATABASE_URL` changes.
 
 ---
 
-## 📚 Dataset
+## Dataset
 
 **Rwanda Demographic and Health Survey (DHS) 2019–20**
 Source: [dhsprogram.com](https://dhsprogram.com) · File: RWKR81DT (Children's Recode) ·
@@ -247,7 +247,7 @@ Labels derive from the **WHO 2006 weight-for-height z-score** thresholds:
 
 ---
 
-## 📱 App Screens
+## App Screens
 
 Real screenshots captured from the running Next.js app (iPhone @2x).
 
@@ -268,7 +268,7 @@ New **Screening** (5 inputs) → colour-coded **Result** → Patients / Profile 
 
 ---
 
-## 📈 Key Outputs
+## Key Outputs
 
 All plots below are produced by running `notebooks/nura_health_model.ipynb` end-to-end.
 

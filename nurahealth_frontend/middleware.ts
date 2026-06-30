@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { SESSION_COOKIE, verifySessionToken } from "@/lib/auth";
+import { SESSION_COOKIE, verifySessionToken } from "./src/lib/auth";
 
 // Protect the authenticated screens. Runs on the Edge — only verifies the
 // JWT (no Prisma/bcrypt here).

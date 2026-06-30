@@ -17,3 +17,6 @@ node_modules/
 
 # Logs
 *.log
+
+# Hugging Face Space clone (has its own git remote — deployed separately)
+nurahealth_backend/nura-api/
